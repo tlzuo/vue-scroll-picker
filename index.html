@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>scroll-picker</title>
+</head>
+
+<body>
+    <main id="app">
+		<scroll-picker
+			:maps="maps"
+			:map.sync="map"
+			></scroll-picker>
+			
+		<div>selected：{{ map }}</div>
+    </main>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+<script src="./components/scroll-picker.js"></script>
+<script>
+	var scroll = new Vue({
+		el: '#app',
+		data: {
+			maps: [],
+			map: {},//selected item
+		},
+		mounted: function () {
+			this.maps = [
+				{ alias: '1F', defData: 1 },
+				{ alias: '2F', defData: 2 },
+				{ alias: '3F', defData: 3 },
+				{ alias: '4F', defData: 4 }
+			];
+			this.map = this.maps[0];//init first selected item
+		}
+	});
+</script>
+
+</html>
